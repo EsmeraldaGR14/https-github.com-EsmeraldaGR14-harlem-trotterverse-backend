@@ -4,7 +4,7 @@ const morgan = require("morgan");
 
 const app = express();
 
-const playersController = require("./controllers/players.js");
+const playersController = require("./controllers/playersController.js");
 
 app.use(cors());
 app.use(express.json());
