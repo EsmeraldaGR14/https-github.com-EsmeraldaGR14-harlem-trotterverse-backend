@@ -7,8 +7,8 @@ CREATE DATABASE globe_trotter_dev;
 CREATE TABLE active_roster (
     id SERIAL PRIMARY KEY,
     position TEXT NOT NULL, 
-    height TEXT, 
-    nickname TEXT NOT NULL,
+    height TEXT NOT NULL, 
+    nickname TEXT,
     lastname TEXT NOT NULL,
     hometown TEXT,
     almamater TEXT,
