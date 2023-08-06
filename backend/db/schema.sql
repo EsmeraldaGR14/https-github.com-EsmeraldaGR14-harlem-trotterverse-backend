@@ -6,8 +6,9 @@ CREATE DATABASE globe_trotter_dev;
 
 CREATE TABLE active_roster (
     id SERIAL PRIMARY KEY,
-    position TEXT NOT NULL, 
-    height TEXT NOT NULL, 
+    position TEXT NOT NULL, -- ENUM ALLOWS FOR PREDEFINED DATA TYPES
+    -- ENUM(fill with positions)
+    height TEXT NOT NULL, -- VARCHAR(3)
     nickname TEXT,
     lastname TEXT NOT NULL,
     hometown TEXT,

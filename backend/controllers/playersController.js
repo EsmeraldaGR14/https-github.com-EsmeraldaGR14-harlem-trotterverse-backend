@@ -7,6 +7,8 @@ const {
   updatedPlayerById,
 } = require("../queries/players");
 
+const { checkIfNotNull } = require("../validations/checkPlayers");
+
 router.get("/", async (req, res) => {
   try {
     const allPlayers = await getAllPlayers();
@@ -19,7 +21,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", checkIfNotNull, async (req, res) => {
   try {
     const createPlayer = await createNewPlayer(req.body);
     res.json(createPlayer);
@@ -28,7 +30,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", checkIfNotNull, async (req, res) => {
   try {
     console.log(req.params.id, req.body);
     const updatedPlayer = await updatedPlayerById(req.params.id, req.body);
