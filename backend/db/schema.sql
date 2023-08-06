@@ -14,7 +14,7 @@ CREATE TABLE active_roster (
     hometown TEXT,
     almamater TEXT,
     jersey_number INTEGER, 
-    bio TEXT NOT NULL, 
+    bio TEXT, 
     career_highlights TEXT,
     career_history TEXT,
     favorite_quote TEXT,
