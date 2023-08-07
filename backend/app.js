@@ -5,12 +5,14 @@ const morgan = require("morgan");
 const app = express();
 
 const playersController = require("./controllers/playersController.js");
+const userPlayerController = require("./controllers/playersController.js");
 
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/players", playersController);
+app.use("/user-player", userPlayerController);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Harlem TrotterVerse");
