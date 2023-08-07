@@ -1,29 +1,31 @@
 const db = require("../db/dbConfig");
 
-const getAllPlayers = async () => {
+const getAllTrotters = async () => {
   try {
-    const allPlayers = await db.any("SELECT * FROM active_roster");
+    const allTrotters = await db.any("SELECT * FROM active_roster");
 
-    return allPlayers;
+    return allTrotters;
   } catch (error) {
     return error;
   }
 };
 
-const getSinglePlayer = async (id) => {
+const getSingleTrotter = async (id) => {
   try {
-    const singlePlayer =  await db.any("SELECT * FROM active_roster WHERE id = $1", id);
+    const singleTrotter = await db.any(
+      "SELECT * FROM active_roster WHERE id = $1",
+      id
+    );
 
-    return singlePlayer;
+    return singleTrotter;
   } catch (error) {
     return error;
   }
 };
 
-
-const createNewPlayer = async (data) => {
+const createNewTrotter = async (data) => {
   try {
-    const createPlayer = await db.one(
+    const createTrotter = await db.one(
       "INSERT INTO active_roster (position, height, nickname, lastname, hometown, almamater,jersey_number, bio, career_highlights, career_history, favorite_quote, hobbies) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *",
       [
         data.position,
@@ -41,16 +43,16 @@ const createNewPlayer = async (data) => {
       ]
     );
 
-    return createPlayer;
+    return createTrotter;
   } catch (error) {
     return error;
   }
 };
 
-const updatedPlayerById = async (id, data) => {
+const updatedTrotterById = async (id, data) => {
   try {
     console.log(id, data);
-    const updatedPlayer = await db.one(
+    const updatedTrotter = await db.one(
       "UPDATE active_roster SET position = $1, height = $2, nickname = $3 , lastname = $4, hometown = $5, almamater = $6,jersey_number = $7, bio = $8, career_highlights = $9, career_history = $10, favorite_quote = $11, hobbies = $12 WHERE id = $13 RETURNING *",
       [
         data.position,
@@ -68,18 +70,27 @@ const updatedPlayerById = async (id, data) => {
         id,
       ]
     );
-    return updatedPlayer;
+    return updatedTrotter;
   } catch (error) {
     return error;
   }
 };
-const deletePlayerById = async (id) => {
+const deleteTrotterById = async (id) => {
   try {
-    const deletePlayer = await db.one("DELETE FROM active_roster WHERE id = $1 RETURNING *", id)
-return deletePlayer; 
+    const deleteTrotter = await db.one(
+      "DELETE FROM active_roster WHERE id = $1 RETURNING *",
+      id
+    );
+    return deleteTrotter;
   } catch (error) {
-return error; 
+    return error;
   }
-}; 
+};
 
-module.exports = { getAllPlayers, getSinglePlayer, createNewPlayer, updatedPlayerById , deletePlayerById};
+module.exports = {
+  getAllTrotters,
+  getSingleTrotter,
+  createNewTrotter,
+  updatedTrotterById,
+  deleteTrotterById,
+};

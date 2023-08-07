@@ -6,7 +6,7 @@ CREATE DATABASE globe_trotter_dev;
 
 
 -- i want the user to be able to have their own table so that they can create their trotter player
-CREATE TABLE user_player (
+CREATE TABLE user_trotter (
     id SERIAL PRIMARY KEY,
      position TEXT NOT NULL, -- ENUM ALLOWS FOR PREDEFINED DATA TYPES
     -- ENUM(fill with positions)
