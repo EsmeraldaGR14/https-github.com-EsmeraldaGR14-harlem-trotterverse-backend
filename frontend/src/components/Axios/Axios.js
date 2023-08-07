@@ -1,11 +1,13 @@
-// import axios from "axios";
+import axios from "axios";
 
-// const AxiosInstance = axios.create({
-//   baseURL:
-//     process.env.NODE_ENV === "development"
-//       ? "http://localhost:3001"
-//       : "DEPLOY URL",
-//   timeout: 50000,
-// });
+const AxiosInstance = axios.create({
+  baseURL:
+    // process.env.NODE_ENV === "development"
+    //   ?
+    "http://localhost:3005",
+  //   :
+  //   "DEPLOY URL",
+  timeout: 50000,
+});
 
-// export default AxiosInstance;
+export default AxiosInstance;
