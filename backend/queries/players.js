@@ -10,6 +10,17 @@ const getAllPlayers = async () => {
   }
 };
 
+const getSinglePlayer = async (id) => {
+  try {
+    const singlePlayer =  await db.any("SELECT * FROM active_roster WHERE id = $1", id);
+
+    return singlePlayer;
+  } catch (error) {
+    return error;
+  }
+};
+
+
 const createNewPlayer = async (data) => {
   try {
     const createPlayer = await db.one(
@@ -62,5 +73,13 @@ const updatedPlayerById = async (id, data) => {
     return error;
   }
 };
+const deletePlayerById = async (id) => {
+  try {
+    const deletePlayer = await db.one("DELETE FROM active_roster WHERE id = $1 RETURNING *", id)
+return deletePlayer; 
+  } catch (error) {
+return error; 
+  }
+}; 
 
-module.exports = { getAllPlayers, createNewPlayer, updatedPlayerById };
+module.exports = { getAllPlayers, getSinglePlayer, createNewPlayer, updatedPlayerById , deletePlayerById};
