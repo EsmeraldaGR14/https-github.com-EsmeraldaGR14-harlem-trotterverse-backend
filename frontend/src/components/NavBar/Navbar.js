@@ -5,8 +5,8 @@ function Nav() {
   return (
     <nav>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/players">
-        <button>New Player</button>
+      <NavLink to="/user-trotter">
+        <button>Create-A-Trotter</button>
       </NavLink>
     </nav>
   );

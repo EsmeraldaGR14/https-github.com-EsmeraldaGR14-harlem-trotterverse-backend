@@ -8,5 +8,13 @@ async function getAllTrottersAPI() {
     console.log(error);
   }
 }
+async function displayUserProfileAPI(data) {
+  try {
+    let result = await Axios.post(`/user-trotter`, data);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-export { getAllTrottersAPI };
+export { getAllTrottersAPI, displayUserProfileAPI };
