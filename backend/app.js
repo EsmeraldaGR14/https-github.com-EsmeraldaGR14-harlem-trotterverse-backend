@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const app = express();
 
 const playersController = require("./controllers/trotterController.js");
-const userPlayerController = require("./controllers/trotterController.js");
+const userPlayerController = require("./controllers/userTrotterController.js");
 
 app.use(cors());
 app.use(express.json());
