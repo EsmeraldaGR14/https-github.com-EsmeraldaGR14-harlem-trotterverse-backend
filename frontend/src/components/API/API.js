@@ -1,6 +1,6 @@
 import Axios from "../Axios/Axios";
 
-async function getAllPlayersAPI() {
+async function getAllTrottersAPI() {
   try {
     let result = await Axios.get("/players");
     return result;
@@ -9,4 +9,4 @@ async function getAllPlayersAPI() {
   }
 }
 
-export { getAllPlayersAPI };
+export { getAllTrottersAPI };

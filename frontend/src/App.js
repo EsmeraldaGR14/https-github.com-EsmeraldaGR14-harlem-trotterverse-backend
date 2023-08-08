@@ -1,9 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Nav/Nav";
-import Home from "./components/Home/Home";
-import AllPlayers from "./components/AllPlayers/AllPlayers";
-import EditPlayer from "./components/EditPlayer.js/EditPlayer";
+import HomePage from "./components/HomePage/HomePage";
+import ActivePlayers from "./components/ActivePlayers/ActivePlayers";
+import EditTrotter from "./components/EditTrotter/EditTrotter";
 
 function App() {
   return (
@@ -11,9 +11,9 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/players" element={<AllPlayers />}></Route>
-          <Route path="/players/:id/edit" element={<EditPlayer />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/trotters" element={<ActivePlayers />}></Route>
+          <Route path="/trotters/:id/edit" element={<EditTrotter />}></Route>
         </Routes>
       </Router>
     </div>
