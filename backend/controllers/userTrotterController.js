@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", checkIfNotNull, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newUserTrotter = await createNewUserTrotter();
     res.json(newUserTrotter);
@@ -35,7 +35,7 @@ router.post("/", checkIfNotNull, async (req, res) => {
   }
 });
 
-router.put("/:id", checkIfNotNull, async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const updatedUserTrotter = await updateUserTrotter();
     res.json(updatedUserTrotter);
