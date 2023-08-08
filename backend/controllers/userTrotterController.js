@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getUserPlayer,
-  createNewUserPlayer,
-  updateUserPlayer,
-  deleteUserPlayer,
-} = require("../queries/userPlayer");
+  getUserTrotter,
+  createNewUserTrotter,
+  updateUserTrotter,
+  deleteUserTrotter,
+} = require("../queries/userTrotter");
 
-const { checkIfNotNull } = require("../validations/checkPlayers");
+const { checkIfNotNull } = require("../validations/checkTrotters");
 
 // router.get("/", async (req, res) => {
 //   try {
@@ -19,8 +19,8 @@ const { checkIfNotNull } = require("../validations/checkPlayers");
 
 router.get("/:id", async (req, res) => {
   try {
-    const userPlayer = await getUserPlayer();
-    res.json(userPlayer);
+    const userTrotter = await getUserTrotter();
+    res.json(userTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });
   }
@@ -28,8 +28,8 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", checkIfNotNull, async (req, res) => {
   try {
-    const newUserPlayer = await createNewUserPlayer();
-    res.json(newUserPlayer);
+    const newUserTrotter = await createNewUserTrotter();
+    res.json(newUserTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });
   }
@@ -37,8 +37,8 @@ router.post("/", checkIfNotNull, async (req, res) => {
 
 router.put("/:id", checkIfNotNull, async (req, res) => {
   try {
-    const updatedUserPlayer = await updateUserPlayer();
-    res.json(updatedUserPlayer);
+    const updatedUserTrotter = await updateUserTrotter();
+    res.json(updatedUserTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });
   }
@@ -46,8 +46,8 @@ router.put("/:id", checkIfNotNull, async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const deletedUserPlayer = await deleteUserPlayer();
-    res.json(deletedUserPlayer);
+    const deletedUserTrotter = await deleteUserTrotter();
+    res.json(deletedUserTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });
   }

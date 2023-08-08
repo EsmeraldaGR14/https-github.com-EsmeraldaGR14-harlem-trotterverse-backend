@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { getAllPlayersAPI } from "../API/API";
+import { getAllTrottersAPI } from "../API/API";
 import { useNavigate } from "react-router-dom";
 
-function AllPlayers() {
+function AllTrotter() {
   let navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    getAllPlayers();
+    getAllTrotter();
   }, []);
 
-  async function getAllPlayers() {
+  async function getAllTrotter() {
     try {
-      let { data } = await getAllPlayersAPI();
+      let { data } = await getAllTrottersAPI();
       setData(data);
     } catch (error) {
       console.log(error);
@@ -34,4 +34,4 @@ function AllPlayers() {
   );
 }
 
-export default AllPlayers;
+export default AllTrotter;
