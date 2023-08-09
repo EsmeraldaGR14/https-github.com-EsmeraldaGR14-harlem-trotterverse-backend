@@ -15,7 +15,10 @@ function Nav() {
           Roster
         </NavLink>
         <NavLink className="navbar-link" to="/user-trotter">
-          <button className= "button">Create-A-Trotter</button>
+          My Trotters
+        </NavLink>
+        <NavLink className="navbar-link" to="/user-trotter">
+          <button className="button">Create-A-Trotter</button>
         </NavLink>
       </div>
     </nav>
