@@ -43,6 +43,13 @@ async function getAllUserTrotterAPI() {
     console.log(error);
   }
 }
+async function deleteUserTrotterAPI(id) {
+  try {
+    await Axios.delete(`/user-trotter/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 export {
   getAllTrottersAPI,
@@ -50,4 +57,5 @@ export {
   getSingleTrotterAPI,
   updateTrotterPlayerAPI,
   getAllUserTrotterAPI,
+  deleteUserTrotterAPI,
 };
