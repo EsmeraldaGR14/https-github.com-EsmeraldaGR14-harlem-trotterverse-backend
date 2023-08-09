@@ -3,7 +3,7 @@ import { handleOnChange } from "../helpers/OnChangeHandler";
 import { getSingleTrotterAPI, updateTrotterPlayerAPI } from "../API/API";
 import { useParams, useNavigate } from "react-router-dom";
 import { skills } from "../data/Skills";
-
+import "./EditTrotter.css"
 function EditPlayer() {
   let { id } = useParams();
   let navigate = useNavigate();
@@ -39,9 +39,9 @@ function EditPlayer() {
 
   return (
     updatedData && (
-      <form onSubmit={updateTrotterPlayer}>
+      <form className="edit-body" onSubmit={updateTrotterPlayer}>
         <div>
-          <label>Skill</label>
+          <label className="label">Skill</label>
           <select
             id="position"
             name="position"
@@ -55,14 +55,14 @@ function EditPlayer() {
             }
             value={updatedData.skill}
           >
-            <option>Choose a position...</option>
+            <option>Choose a skill..</option>
             {skills.map((skill, index) => (
               <option key={index + skill}>{skill}</option>
             ))}
           </select>
         </div>
         <div>
-          <label>Height</label>
+          <label className="label">Height</label>
           <input
             id="height"
             name="height"
@@ -78,7 +78,7 @@ function EditPlayer() {
           ></input>
         </div>
         <div>
-          <label>Nickname</label>
+          <label className="label">Nickname</label>
           <input
             id="nickname"
             name="nickname"
@@ -94,7 +94,7 @@ function EditPlayer() {
           ></input>
         </div>
         <div>
-          <label>Signature Move</label>
+          <label className="label">Signature Move</label>
           <input
             id="signature_move"
             name="signature_move"
@@ -110,7 +110,7 @@ function EditPlayer() {
           ></input>
         </div>
         <div>
-          <label>Lastname</label>
+          <label className="label">Last name</label>
           <input
             id="lastname"
             name="lastname"
@@ -126,7 +126,7 @@ function EditPlayer() {
           ></input>
         </div>
         <div>
-          <label>Jersey Number</label>
+          <label className="label">Jersey Number</label>
           <input
             id="jersey_number"
             name="jersey_number"
@@ -144,7 +144,7 @@ function EditPlayer() {
         <div>
           {updatedData.profile_picture ? (
             <>
-              <label>Profile Picture</label>
+              <label className="label">Profile Picture</label>
               <input
                 id="profile_picture"
                 name="profile_picture"
@@ -165,7 +165,7 @@ function EditPlayer() {
             ""
           )}
         </div>
-        <button>Submit</button>
+        <button className ="submit-button">Submit</button>
       </form>
     )
   );

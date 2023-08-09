@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Streetwear";
+  src: url("../Font_assets/Streetwear.otf");
+}
+@font-face {
+  font-family: "JerseyMesh";
+  src: url("../Font_assets/PROMESHMesh-Regular.ttf");
+}
+
+
+.edit-body{
+	background: repeating-conic-gradient(
+		#b222335b 0,
+		#b22233b5 10deg,
+		#fff 0,
+		#fff 20deg,
+		#1e36aedd 0,
+		#1d1b7e72 30deg,
+		#fff 0,
+		#fff 40deg
+        
+	);
+    background-size: cover;
+    padding: 350px;
+    
+}
+.label{
+    font-size: 25px;
+    font-family: "JerseyMesh", sans-serif;
+    text-align: center;
+    color: #ebcdb3;
+    font-weight: bold;
+    text-shadow: 0 0 3px #cca629cb, 0 0 5px #000000;
+}
+.submit-button{
+     border: #9c9898;
+    background-color: #333;
+    color: white
+}
