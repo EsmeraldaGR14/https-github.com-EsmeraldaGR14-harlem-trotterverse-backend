@@ -7,6 +7,7 @@ import ActivePlayers from "./components/ActivePlayers/ActivePlayers";
 import EditTrotter from "./components/EditTrotter/EditTrotter";
 import CreateTrotter from "./components/CreateTrotter/CreateTrotter";
 import AllUserTrotters from "./components/AllUserTrotters/AllUserTrotters";
+import SingleUserTrotter from "./components/SingleUserTrotter/SingleUSerTrotter";
 
 function App() {
   return (
@@ -16,11 +17,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/trotters" element={<ActivePlayers />}></Route>
-          <Route path="/trotters/:id"></Route>
+          <Route path="/trotters/:id" element={""}></Route>
 
           <Route path="/user-trotter" element={<AllUserTrotters />}></Route>
           <Route path="/user-trotter/new" element={<CreateTrotter />} />
-          <Route path="/user-trotter/:id" element={""} />
+          <Route path="/user-trotter/:id" element={<SingleUserTrotter />} />
           <Route path="/user-trotter/:id/edit" element={<EditTrotter />} />
           <Route path="*" element={""} />
         </Routes>
