@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getSingleTrotterAPI } from "../API/API";
-import { useParams } from "react-router-dom";
+import { deleteUserTrotterAPI, getSingleTrotterAPI } from "../API/API";
+import { useParams, useNavigate } from "react-router-dom";
 
 function SingleUserTrotter() {
   let { id } = useParams();
+  let navigate = useNavigate();
 
   const [data, setData] = useState({});
 
@@ -19,25 +20,53 @@ function SingleUserTrotter() {
     })();
   }, [id]);
 
+  function goBack() {
+    navigate(-1);
+  }
+
+  function goToEditTrotter() {
+    navigate(`/user-trotter/${id}/edit`);
+  }
+
+  async function deleteUserTrotter() {
+    try {
+      await deleteUserTrotterAPI(id);
+      navigate(`/user-trotter`);
+    } catch (error) {}
+  }
+
   return (
-    <div className="card">
-      <div className="card-body">
-        <h2 className="card-title">{`${data.nickname} ${data.lastname}`}</h2>
-        <img className="card-img-bottom" src={data.profile_picture} alt="" />
-        <p className="card-text">
-          <strong>Signature Move: </strong>
-          {data.signature_move}
-        </p>
-        <p>
-          <strong>Jersey Number: </strong>
-          {data.jersey_number}
-        </p>
-        <p className="card-text">
-          <strong>Skill: </strong>
-          {data.skill}
-        </p>
+    data && (
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title">{`${data.nickname} ${data.lastname}`}</h2>
+          <img className="card-img-bottom" src={data.profile_picture} alt="" />
+          <p className="card-text">
+            <strong>Signature Move: </strong>
+            {data.signature_move}
+          </p>
+          <p>
+            <strong>Jersey Number: </strong>
+            {data.jersey_number}
+          </p>
+          <p className="card-text">
+            <strong>Skill: </strong>
+            {data.skill}
+          </p>
+          <div className="btn-group" role="group" aria-label="Button group">
+            <button onClick={goBack} className="btn btn-secondary">
+              BACK
+            </button>
+            <button onClick={goToEditTrotter} className="btn btn-primary">
+              EDIT
+            </button>
+            <button onClick={deleteUserTrotter} className="btn btn-danger">
+              DELETE
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    )
   );
 }
 
