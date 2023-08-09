@@ -14,7 +14,7 @@ CREATE TABLE user_trotter (
     signature_move TEXT,
     lastname TEXT NOT NULL,
     jersey_number INTEGER,
-    profile_picture BYTEA
+    profile_picture TEXT
 );
 
 -- the user is able to see the active roster but will not be able to change 

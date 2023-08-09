@@ -35,9 +35,19 @@ async function updateTrotterPlayerAPI(id, data) {
   }
 }
 
+async function getAllUserTrotterAPI() {
+  try {
+    let result = await Axios.get(`/user-trotter`);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export {
   getAllTrottersAPI,
   displayUserProfileAPI,
   getSingleTrotterAPI,
   updateTrotterPlayerAPI,
+  getAllUserTrotterAPI,
 };
