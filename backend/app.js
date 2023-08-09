@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.use("/players", playersController);
-app.use("/user-player", userPlayerController);
+app.use("/trotters", playersController);
+app.use("/user-trotter", userPlayerController);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Harlem TrotterVerse");

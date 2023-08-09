@@ -15,9 +15,9 @@ router.get("/", async (req, res) => {
   try {
     const allTrotters = await getAllTrotters();
 
-    if (Array.isArray(allTrotters)) {
-      res.json(allTrotters);
-    }
+    // if (Array.isArray(allTrotters)) {
+    res.json(allTrotters);
+    // }
   } catch (error) {
     res.status(error.status).json({ error: error.message });
   }

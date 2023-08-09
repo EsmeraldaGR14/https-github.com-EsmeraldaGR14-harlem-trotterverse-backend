@@ -6,16 +6,22 @@ const {
   createNewUserTrotter,
   updateUserTrotter,
   deleteUserTrotter,
+  getAllTrotterUsers,
 } = require("../queries/userTrotter");
 
 const { checkIfNotNull } = require("../validations/checkTrotters");
 
-// router.get("/", async (req, res) => {
-//   try {
-//   } catch (error) {
-//     res.status(error.status).json({ error: error.status });
-//   }
-// });
+router.get("/", async (req, res) => {
+  try {
+    const allTrotterUsers = await getAllTrotterUsers();
+
+    // if (Array.isArray(allTrotters)) {
+    res.json(allTrotterUsers);
+    // }
+  } catch (error) {
+    res.status(error.status).json({ error: error.status });
+  }
+});
 
 router.get("/:id", async (req, res) => {
   try {

@@ -7,7 +7,6 @@ import ActivePlayers from "./components/ActivePlayers/ActivePlayers";
 import EditTrotter from "./components/EditTrotter/EditTrotter";
 import CreateTrotter from "./components/CreateTrotter/CreateTrotter"; 
 
-
 function App() {
   return (
     <div className="App">
@@ -18,7 +17,6 @@ function App() {
           <Route path="/user-trotter" element ={<CreateTrotter/>}></Route>
           <Route path="/trotters" element={<ActivePlayers />}></Route>
           <Route path="/trotters/:id/edit" element={<EditTrotter />}></Route>
-
         </Routes>
       </Router>
     </div>
