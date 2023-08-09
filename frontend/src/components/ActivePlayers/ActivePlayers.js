@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllTrottersAPI } from "../API/API";
 import { useNavigate } from "react-router-dom";
-
+import "./ActivePlayers.css"
 function AllTrotter() {
   let navigate = useNavigate();
   const [data, setData] = useState([]);
