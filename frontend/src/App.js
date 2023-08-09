@@ -6,7 +6,6 @@ import HomePage from "./components/HomePage/HomePage";
 import ActivePlayers from "./components/ActivePlayers/ActivePlayers";
 import EditTrotter from "./components/EditTrotter/EditTrotter";
 
-
 function App() {
   return (
     <div className="App">
@@ -17,7 +16,6 @@ function App() {
 
           <Route path="/trotters" element={<ActivePlayers />}></Route>
           <Route path="/trotters/:id/edit" element={<EditTrotter />}></Route>
-
         </Routes>
       </Router>
     </div>

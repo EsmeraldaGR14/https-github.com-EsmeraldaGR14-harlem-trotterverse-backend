@@ -1,26 +1,38 @@
 const db = require("../db/dbConfig");
 
+const getAllTrotterUsers = async () => {
+  try {
+    const allTrotterUsers = await db.any("SELECT * FROM user_trotter");
+    return allTrotterUsers;
+  } catch (error) {
+    return error;
+  }
+};
 const getUserTrotter = async (id) => {
   try {
     const usersTrotter = await db.one(
-      "SELECT * FROM user_Trotter WHERE id = $1",
+      "SELECT * FROM user_trotter WHERE id = $1",
       id
     );
 
     return usersTrotter;
-  } catch (error) {}
+  } catch (error) {
+    return error;
+  }
 };
 
 const createNewUserTrotter = async (data) => {
   try {
     const newUserTrotter = await db.one(
-      "INSERT INTO user_Trotter (height, position, nickname, lastname, jersey_number) VALUES ($1, $2, $3,$4, $5)",
+      "INSERT INTO user_trotter (skill, height, nickname, signature_move, lastname, jersey_number, profile_picture) VALUES ($1, $2, $3,$4, $5, $6, $7)",
       [
+        data.skill,
         data.height,
-        data.position,
         data.nickname,
+        data.signature_move,
         data.lastname,
         data.jersey_number,
+        data.profile_picture,
       ]
     );
     return newUserTrotter;
@@ -32,13 +44,15 @@ const createNewUserTrotter = async (data) => {
 const updateUserTrotter = async (id, data) => {
   try {
     const updatedData = await db.one(
-      "UPDATE user_Trotter SET height = $1, position = $2, nickname = $3, lastname = $4, jersey_number = $5 WHERE id = $6 RETURNING *",
+      "UPDATE user_trotter SET skill = $1, height = $2, nickname = $3, signature_move = $4, lastname = $5, jersey_number = $6, profile_picture = $7 WHERE id = $8 RETURNING *",
       [
+        data.skill,
         data.height,
-        data.position,
         data.nickname,
+        data.signature_move,
         data.lastname,
         data.jersey_number,
+        data.profile_picture,
         id,
       ]
     );
@@ -52,7 +66,7 @@ const updateUserTrotter = async (id, data) => {
 const deleteUserTrotter = async (id) => {
   try {
     const deletedUserTrotter = await db.one(
-      "DELETE FROM user_Trotter WHERE id = $1 RETURNING *",
+      "DELETE FROM user_trotter WHERE id = $1 RETURNING *",
       id
     );
     return deletedUserTrotter;
@@ -61,8 +75,10 @@ const deleteUserTrotter = async (id) => {
   }
 };
 module.exports = {
+  getAllTrotterUsers,
   getUserTrotter,
   createNewUserTrotter,
   updateUserTrotter,
   deleteUserTrotter,
+  getAllTrotterUsers,
 };

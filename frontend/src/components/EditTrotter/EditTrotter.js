@@ -1,132 +1,126 @@
 import React, { useState, useEffect } from "react";
+import { handleOnChange } from "../helpers/OnChangeHandler";
+import { getSingleTrotterAPI, updateTrotterPlayerAPI } from "../API/API";
+import { useParams } from "react-router-dom";
+import { skills } from "../data/Skills";
 
 function EditPlayer() {
-  const [updatedData, setUpdatedData] = useState({});
+  let { id } = useParams();
+  const [updatedData, setUpdatedData] = useState({
+    skill: "",
+    height: "",
+    nickname: "",
+    lastname: "",
+    jersey_number: "",
+  });
 
-  function handleOnChange(id, value) {
-    console.log(id, value);
-    setUpdatedData({ ...updatedData, [id]: value });
-  }
+  useEffect(() => {
+    (async function getSingleTrotter() {
+      try {
+        let { data } = await getSingleTrotterAPI(id);
+        console.log(data[0]);
+        setUpdatedData(data[0]);
+      } catch (error) {}
+    })();
+  }, [id]);
 
-  console.log(updatedData);
+  // async function updateTrotterPlayer(e) {
+  //   e.preventDefault();
+  //   try {
+  //     await updateTrotterPlayerAPI(id);
+  //   } catch (error) {}
+  // }
+
   return (
-    <form>
+    <form
+    // onSubmit={updateTrotterPlayer}
+    >
       <div>
-        {/* options */}
-        <label>Options</label>
-        {/* <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input> */}
+        <label>Skill</label>
         <select
-          id="options"
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
+          id="position"
+          name="position"
+          onChange={(e) =>
+            handleOnChange(
+              e.target.id,
+              e.target.value,
+              updatedData,
+              setUpdatedData
+            )
+          }
+          // value={updatedData.skill}
         >
-          <option>choose an option</option>
-          <option>1</option>
-          <option>2</option>
+          <option>Choose a position...</option>
+          {skills.map((skill, index) => (
+            <option key={index + skill}>{skill}</option>
+          ))}
         </select>
       </div>
       <div>
-        {/* height */}
         <label>Height</label>
         <input
           id="height"
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
+          name="height"
+          onChange={(e) =>
+            handleOnChange(
+              e.target.id,
+              e.target.value,
+              updatedData,
+              setUpdatedData
+            )
+          }
+          // value={updatedData.height}
         ></input>
       </div>
       <div>
-        {/* nickname */}
         <label>Nickname</label>
         <input
           id="nickname"
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
+          name="nickname"
+          onChange={(e) =>
+            handleOnChange(
+              e.target.id,
+              e.target.value,
+              updatedData,
+              setUpdatedData
+            )
+          }
+          // value={updatedData.nickname}
         ></input>
       </div>
       <div>
-        {/* lastname */}
         <label>Lastname</label>
         <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
+          id="lastname"
+          name="lastname"
+          onChange={(e) =>
+            handleOnChange(
+              e.target.id,
+              e.target.value,
+              updatedData,
+              setUpdatedData
+            )
+          }
+          // value={updatedData.lastname}
         ></input>
       </div>
       <div>
-        {/* hometown */}
-        <label>Hometown</label>
-        <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input>
-      </div>
-      <div>
-        {/* almamater */}
-        <label>Almamater</label>
-        <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input>
-      </div>
-      <div>
-        {/* jersey number */}
         <label>Jersey Number</label>
         <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
+          id="jersey_number"
+          name="jersey_number"
+          onChange={(e) =>
+            handleOnChange(
+              e.target.id,
+              e.target.value,
+              updatedData,
+              setUpdatedData
+            )
+          }
+          // value={updatedData.jersey_number}
         ></input>
       </div>
-      <div>
-        {/* bio */}
-        <label>Bio</label>
-        <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input>
-      </div>
-      <div>
-        {/* career highlights */}
-        <label>Career highlights</label>
-        <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input>
-      </div>
-      <div>
-        {/* career history */}
-        <label>Career History</label>
-        <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input>
-      </div>
-      <div>
-        {/* favorite quote */}
-        <label>Favorite Quote</label>
-        <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input>
-      </div>
-      <div>
-        {/* hobbies */}
-        <label>Hobbies</label>
-        <input
-          id=""
-          name=""
-          onChange={(e) => handleOnChange(e.target.id, e.target.value)}
-        ></input>
-      </div>
+      <button>Submit</button>
     </form>
   );
 }
