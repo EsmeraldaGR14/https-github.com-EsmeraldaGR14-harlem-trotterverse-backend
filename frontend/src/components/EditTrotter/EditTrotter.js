@@ -14,7 +14,7 @@ function EditPlayer() {
     nickname: "",
     signature_move: "",
     lastname: "",
-    jersey_number: "",
+    jersey_number: 0,
     profile_picture: "",
   });
 
