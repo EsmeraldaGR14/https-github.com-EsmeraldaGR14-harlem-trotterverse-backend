@@ -3,7 +3,7 @@ import { handleOnChange } from "../helpers/OnChangeHandler";
 import { getSingleTrotterAPI, updateTrotterPlayerAPI } from "../API/API";
 import { useParams, useNavigate } from "react-router-dom";
 import { skills } from "../data/Skills";
-import "./EditTrotter.css"
+import "./EditTrotter.css";
 function EditPlayer() {
   let { id } = useParams();
   let navigate = useNavigate();
@@ -43,6 +43,7 @@ function EditPlayer() {
         <div>
           <label className="label">Skill</label>
           <select
+            type="text"
             id="position"
             name="position"
             onChange={(e) =>
@@ -64,6 +65,7 @@ function EditPlayer() {
         <div>
           <label className="label">Height</label>
           <input
+            type="text"
             id="height"
             name="height"
             onChange={(e) =>
@@ -80,6 +82,7 @@ function EditPlayer() {
         <div>
           <label className="label">Nickname</label>
           <input
+            type="text"
             id="nickname"
             name="nickname"
             onChange={(e) =>
@@ -96,6 +99,7 @@ function EditPlayer() {
         <div>
           <label className="label">Signature Move</label>
           <input
+            type="text"
             id="signature_move"
             name="signature_move"
             onChange={(e) =>
@@ -112,6 +116,7 @@ function EditPlayer() {
         <div>
           <label className="label">Last name</label>
           <input
+            type="text"
             id="lastname"
             name="lastname"
             onChange={(e) =>
@@ -128,6 +133,7 @@ function EditPlayer() {
         <div>
           <label className="label">Jersey Number</label>
           <input
+            type="number"
             id="jersey_number"
             name="jersey_number"
             onChange={(e) =>
@@ -146,26 +152,25 @@ function EditPlayer() {
             <>
               <label className="label">Profile Picture</label>
               <input
+                type="url"
                 id="profile_picture"
                 name="profile_picture"
-                type="file"
-                accept="image/png, image/gif, image/jpeg"
-                // onChange={(e) =>
-                //   handleOnChange(
-                //     e.target.id,
-                //     e.target.value,
-                //     updatedData,
-                //     setUpdatedData
-                //   )
-                // }
-                // value={updatedData.profile_picture}
+                onChange={(e) =>
+                  handleOnChange(
+                    e.target.id,
+                    e.target.value,
+                    updatedData,
+                    setUpdatedData
+                  )
+                }
+                value={updatedData.profile_picture}
               ></input>{" "}
             </>
           ) : (
             ""
           )}
         </div>
-        <button className ="submit-button">Submit</button>
+        <button className="submit-button">Submit</button>
       </form>
     )
   );
