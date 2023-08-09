@@ -5,7 +5,7 @@ import Navbar from "./components/NavBar/Navbar";
 import HomePage from "./components/HomePage/HomePage";
 import ActivePlayers from "./components/ActivePlayers/ActivePlayers";
 import EditTrotter from "./components/EditTrotter/EditTrotter";
-import CreateTrotter from "./components/CreateTrotter/CreateTrotter"; 
+import CreateTrotter from "./components/CreateTrotter/CreateTrotter";
 
 function App() {
   return (
@@ -14,9 +14,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/user-trotter" element ={<CreateTrotter/>}></Route>
+          <Route path="/user-trotter" element={<CreateTrotter />}></Route>
+          <Route path="/user-trotter/:id" element={""}></Route>
           <Route path="/trotters" element={<ActivePlayers />}></Route>
           <Route path="/trotters/:id/edit" element={<EditTrotter />}></Route>
+          <Route path="*" element="PAGE NOT FOUND"></Route>
         </Routes>
       </Router>
     </div>
