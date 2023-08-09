@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const userTrotter = await getUserTrotter();
+    const userTrotter = await getUserTrotter(req.params.id);
     res.json(userTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });
@@ -34,7 +34,7 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const newUserTrotter = await createNewUserTrotter();
+    const newUserTrotter = await createNewUserTrotter(req.body);
     res.json(newUserTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });
@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const updatedUserTrotter = await updateUserTrotter();
+    const updatedUserTrotter = await updateUserTrotter(req.params.id, req.body);
     res.json(updatedUserTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });
@@ -52,7 +52,7 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const deletedUserTrotter = await deleteUserTrotter();
+    const deletedUserTrotter = await deleteUserTrotter(req.params.id);
     res.json(deletedUserTrotter);
   } catch (error) {
     res.status(error.status).json({ error: error.message });

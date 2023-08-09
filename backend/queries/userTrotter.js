@@ -24,7 +24,7 @@ const getUserTrotter = async (id) => {
 const createNewUserTrotter = async (data) => {
   try {
     const newUserTrotter = await db.one(
-      "INSERT INTO user_trotter (skill, height, nickname, signature_move, lastname, jersey_number, profile_picture) VALUES ($1, $2, $3,$4, $5, $6, $7)",
+      "INSERT INTO user_trotter (skill, height, nickname, signature_move, lastname, jersey_number, profile_picture) VALUES ($1, $2, $3,$4, $5, $6, $7) RETURNING *",
       [
         data.skill,
         data.height,
@@ -43,6 +43,7 @@ const createNewUserTrotter = async (data) => {
 
 const updateUserTrotter = async (id, data) => {
   try {
+    console.log(id, data);
     const updatedData = await db.one(
       "UPDATE user_trotter SET skill = $1, height = $2, nickname = $3, signature_move = $4, lastname = $5, jersey_number = $6, profile_picture = $7 WHERE id = $8 RETURNING *",
       [
