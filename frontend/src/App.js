@@ -13,12 +13,16 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/user-trotter" element={<CreateTrotter />}></Route>
-          <Route path="/user-trotter/:id" element={""}></Route>
-          <Route path="/trotters" element={<ActivePlayers />}></Route>
-          <Route path="/trotters/:id/edit" element={<EditTrotter />}></Route>
-          <Route path="*" element="PAGE NOT FOUND"></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/trotters" element={<ActivePlayers />}>
+            <Route path=":id"></Route>
+          </Route>
+          <Route path="/user-trotter" element={""}>
+            <Route path="new" element={<CreateTrotter />} />
+            <Route path=":id" element={""} />
+            <Route path=":id/edit" element={<EditTrotter />} />
+          </Route>
+          <Route path="*" element={""} />
         </Routes>
       </Router>
     </div>
