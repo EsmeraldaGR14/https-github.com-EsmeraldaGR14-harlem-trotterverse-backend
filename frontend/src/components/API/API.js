@@ -11,6 +11,7 @@ async function getAllTrottersAPI() {
 async function displayUserProfileAPI(data) {
   try {
     let result = await Axios.post(`/user-trotter`, data);
+    console.log(result);
     return result;
   } catch (error) {
     console.log(error);

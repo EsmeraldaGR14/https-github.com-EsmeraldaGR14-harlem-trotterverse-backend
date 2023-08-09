@@ -5,9 +5,12 @@ import { displayUserProfileAPI } from "../API/API";
 const CreateTrotter = () => {
   const [nickname, setNickname] = useState("");
   const [lastName, setLastName] = useState("");
+  const [height, setHeight] = useState("");
   const [selectedSkill, setSelectedSkill] = useState("");
   const [signatureMove, setSignatureMove] = useState("");
-  const [profilePicture, setProfilePicture] = useState(null);
+  const [jerseyNumber, setJerseyNumber] = useState(0);
+  const [profilePicture, setProfilePicture] = useState("");
+  
 
   const skills = [
     "Dunking",
@@ -27,6 +30,13 @@ const CreateTrotter = () => {
   const handleLastNameChange = (event) => {
     setLastName(event.target.value);
   };
+  const handleHeightChange = (event) => {
+    setHeight(event.target.value);
+  };
+  const handleJerseyNumberChange = (event) => {
+     
+    setJerseyNumber(event.target.value);
+  };
 
   const handleSkillChange = (event) => {
     setSelectedSkill(event.target.value);
@@ -35,10 +45,11 @@ const CreateTrotter = () => {
   const handleSignatureMoveChange = (event) => {
     setSignatureMove(event.target.value);
   };
-
+ 
+  
   const handleProfilePictureChange = (event) => {
-    const file = event.target.files[0];
-    setProfilePicture(file);
+    const url = event.target.value;
+    setProfilePicture(url);
   };
 
   const handleSubmit = async (event) => {
@@ -46,9 +57,11 @@ const CreateTrotter = () => {
     let userProfileDetails = {
       nickname: nickname,
       lastname: lastName,
+      height: height,
       skill: selectedSkill,
       signature_move: signatureMove,
       profile_picture: profilePicture,
+      jersey_number: jerseyNumber
     };
     try {
       await displayUserProfileAPI(userProfileDetails);
@@ -65,8 +78,8 @@ const CreateTrotter = () => {
           <label className="centered">
             Upload Profile Picture:
             <input
-              type="file"
-              accept="image/*"
+              type="text"
+              value={profilePicture}
               onChange={handleProfilePictureChange}
             />
           </label>
@@ -86,6 +99,21 @@ const CreateTrotter = () => {
               onChange={handleLastNameChange}
             />
           </label>
+          <label>
+            Height:
+            <input type="text" value={height} onChange={handleHeightChange} />
+          </label>
+          <label>
+            Jersey Number:
+            <input
+              type="number"
+              min="0"
+              max="99"
+              value={jerseyNumber}
+              onChange={handleJerseyNumberChange}
+            />
+          </label>
+          <p>Selected Jersey Number: {jerseyNumber}</p>
           <label>
             Select Basketball Skill:
             <select value={selectedSkill} onChange={handleSkillChange}>
@@ -111,6 +139,6 @@ const CreateTrotter = () => {
       </div>
     </div>
   );
-};
+              };
 
 export default CreateTrotter;
