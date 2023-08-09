@@ -36,7 +36,7 @@ async function updateTrotterPlayerAPI(id, data) {
 
 export {
   getAllTrottersAPI,
+  displayUserProfileAPI,
   getSingleTrotterAPI,
   updateTrotterPlayerAPI,
-  displayUserProfileAPI,
 };
