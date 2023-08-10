@@ -35,7 +35,7 @@ function AllTrotter() {
           >
             <div className="card">
               <img
-                src={profile_picture} // Provide actual image URL
+                src={profile_picture}
                 className="card-img-top"
                 alt={nickname}
               />
