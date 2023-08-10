@@ -32,7 +32,9 @@ function SingleUserTrotter() {
     try {
       await deleteUserTrotterAPI(id);
       navigate(`/user-trotter`);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

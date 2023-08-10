@@ -20,6 +20,7 @@ CREATE TABLE user_trotter (
 -- the user is able to see the active roster but will not be able to change 
 CREATE TABLE active_roster (
     id SERIAL PRIMARY KEY,
+    profile_picture TEXT,
     position TEXT NOT NULL, -- ENUM ALLOWS FOR PREDEFINED DATA TYPES -- ENUM(fill with positions)
     height TEXT, -- VARCHAR(3)
     nickname TEXT,

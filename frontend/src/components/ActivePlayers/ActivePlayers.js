@@ -14,6 +14,7 @@ function AllTrotter() {
     try {
       let { data } = await getAllTrottersAPI();
       setData(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -24,6 +25,7 @@ function AllTrotter() {
   }
 
   return (
+
     <div className="background">
       <div className="container text">
         <div className = "stars"/>
@@ -111,6 +113,7 @@ function AllTrotter() {
             </div>
           </div>
         
+
       </div>
     </div>
   );
