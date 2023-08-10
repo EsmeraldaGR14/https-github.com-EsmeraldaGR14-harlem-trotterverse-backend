@@ -19,6 +19,11 @@ function PlayerBios() {
       }
     })();
   }, [id]);
+
+  function goBack() {
+    navigate(-1);
+  }
+
   return (
     <div className="card">
       <div className="card-body">
@@ -61,6 +66,7 @@ function PlayerBios() {
             <strong>Hobbies:</strong> {data.hobbies}
           </li>
         </ul>
+        <button onClick={goBack}>BACK</button>
       </div>
     </div>
   );
