@@ -8,6 +8,15 @@ async function getAllTrottersAPI() {
     console.log(error);
   }
 }
+
+async function getSingleActivePlayerAPI(id) {
+  try {
+    let result = await Axios.get(`/trotters/${id}`);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
 async function displayUserProfileAPI(data) {
   try {
     let result = await Axios.post(`/user-trotter`, data);
@@ -58,4 +67,5 @@ export {
   updateTrotterPlayerAPI,
   getAllUserTrotterAPI,
   deleteUserTrotterAPI,
+  getSingleActivePlayerAPI,
 };
