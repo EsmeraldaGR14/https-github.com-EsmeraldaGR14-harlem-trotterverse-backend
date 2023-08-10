@@ -8,6 +8,7 @@ import EditTrotter from "./components/EditTrotter/EditTrotter";
 import CreateTrotter from "./components/CreateTrotter/CreateTrotter";
 import AllUserTrotters from "./components/AllUserTrotters/AllUserTrotters";
 import SingleUserTrotter from "./components/SingleUserTrotter/SingleUSerTrotter";
+import PlayerBios from "./components/PlayerBios/PlayerBios";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/trotters" element={<ActivePlayers />}></Route>
-          <Route path="/trotters/:id" element={""}></Route>
+          <Route path="/trotters/:id" element={<PlayerBios />}></Route>
 
           <Route path="/user-trotter" element={<AllUserTrotters />}></Route>
           <Route path="/user-trotter/new" element={<CreateTrotter />} />
