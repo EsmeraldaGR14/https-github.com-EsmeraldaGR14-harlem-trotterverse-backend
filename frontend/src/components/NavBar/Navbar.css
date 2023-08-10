@@ -1,8 +1,9 @@
 .navbar {
   display: flex;
   justify-content: center;
-  background-color: #121212;
+  background-color: #023375;
   padding: 10px 0;
+  z-index: 11;
 }
 
 .navbar-links {
@@ -12,27 +13,28 @@
   width: 100%;
 }
 .navbar-title {
-  color: white;
+  color: #D6A56F;
   margin-right: 50px;
   padding-top: 8px;
   font-size: 1.5rem;
 }
 .navbar-link {
-  color: white;
+  color: #D6A56F;
   text-decoration: none;
   padding: 10px;
   transition: background-color 0.3s;
 }
 .button {
-    border: #333;
-    background-color: #333;
-    color: white
+    border: #D6A56F;
+    background-color: #023375;
+    color: #D6A56F
 }
 .button:hover{
-    background-color: #8c8b8b;
+    background-color: #023375;
+    color: white
 }
 .navbar-link:hover {
-  background-color: #8c8b8b;
+  background-color: #023375;
   color: white ;
 }
 
