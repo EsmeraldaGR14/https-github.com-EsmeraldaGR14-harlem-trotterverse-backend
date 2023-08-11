@@ -28,6 +28,9 @@ function SingleUserTrotter() {
     navigate(`/user-trotter/${id}/edit`);
   }
 
+  function goToCreateYourDreamTeam() {
+    navigate(`/user-trotter/${id}/dream-team`);
+  }
   async function deleteUserTrotter() {
     try {
       await deleteUserTrotterAPI(id);
@@ -64,6 +67,9 @@ function SingleUserTrotter() {
             </button>
             <button onClick={deleteUserTrotter} className="btn btn-danger">
               DELETE
+            </button>
+            <button onClick={goToCreateYourDreamTeam}>
+              CREATE YOUR DREAM TEAM
             </button>
           </div>
         </div>
