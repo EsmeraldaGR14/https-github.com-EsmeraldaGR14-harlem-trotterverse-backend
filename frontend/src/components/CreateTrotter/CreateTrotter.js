@@ -73,6 +73,13 @@ const CreateTrotter = () => {
   };
 
   return (
+
+    <div className="background">
+      <div className="container text">
+        <div className="stars" />
+        <div className="stars1" />
+        <div className="stars2" />
+        <div className="shooting-stars" />
     <div className="create-trotter-card">
       <div className="create-trotter-content">
         <h2>Create Your Trotter Profile</h2>
@@ -140,6 +147,8 @@ const CreateTrotter = () => {
         </form>
       </div>
     </div>
+  </div>
+  </div>
   );
 };
 
