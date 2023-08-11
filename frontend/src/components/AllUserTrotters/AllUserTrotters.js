@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllUserTrotterAPI } from "../API/API";
+import "./AllUserTrotters.css"
 
 function AllUserTrotters() {
   const [data, setData] = useState([]);
@@ -30,8 +31,14 @@ function AllUserTrotters() {
   amountOfTrotters();
 
   return (
+     <div className="background">
+      <div className="container text">
+        <div className="stars" />
+        <div className="stars1" />
+        <div className="stars2" />
+        <div className="shooting-stars" />
     <div>
-      <h3>You have created {amountOfTrotters()} amount of players!</h3>
+      <h3 className="counter">You have created {amountOfTrotters()} players!</h3>
       <div className="row">
         {data.map(({ id, signature_move, nickname, profile_picture }) => (
           <div
@@ -49,6 +56,8 @@ function AllUserTrotters() {
           </div>
         ))}
       </div>
+    </div>
+    </div>
     </div>
   );
 }
