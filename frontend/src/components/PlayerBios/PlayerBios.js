@@ -120,13 +120,9 @@ function PlayerBios() {
                     </span>
                     Career Highlights and Awards
                   </h2>
-                  {`${data.career_highlights}`}
                 </div>
                 <div className="col-lg-12">
-                  <p>
-                    Guinness World Record, Furthest Behind The Back Alley-Oop
-                    (51’ 2.45”)
-                  </p>
+                  <p>{`${data.career_highlights}`}</p>
                 </div>
               </div>
               <div className="row mb-5">
@@ -142,9 +138,7 @@ function PlayerBios() {
                 </div>
                 <div className="col-lg-12">
                   <p>
-                    Freed-Hardeman University: 2011 – 2012
-                    <br />
-                    Harlem Globetrotters: 2018 – Present
+                    {`${data.career_history}`}
                   </p>
                 </div>
               </div>
