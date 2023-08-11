@@ -39,139 +39,145 @@ function EditPlayer() {
 
   return (
     updatedData && (
-      <form className="edit-body" onSubmit={updateTrotterPlayer}>
-        <div>
-          <label className="label">Skill</label>
-          <select
-            type="text"
-            id="position"
-            name="position"
-            onChange={(e) =>
-              handleOnChange(
-                e.target.id,
-                e.target.value,
-                updatedData,
-                setUpdatedData
-              )
-            }
-            value={updatedData.skill}
-          >
-            <option>Choose a skill..</option>
-            {skills.map((skill, index) => (
-              <option key={index + skill}>{skill}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="label">Height</label>
-          <input
-            type="text"
-            id="height"
-            name="height"
-            onChange={(e) =>
-              handleOnChange(
-                e.target.id,
-                e.target.value,
-                updatedData,
-                setUpdatedData
-              )
-            }
-            value={updatedData.height}
-          ></input>
-        </div>
-        <div>
-          <label className="label">Nickname</label>
-          <input
-            type="text"
-            id="nickname"
-            name="nickname"
-            onChange={(e) =>
-              handleOnChange(
-                e.target.id,
-                e.target.value,
-                updatedData,
-                setUpdatedData
-              )
-            }
-            value={updatedData.nickname}
-          ></input>
-        </div>
-        <div>
-          <label className="label">Signature Move</label>
-          <input
-            type="text"
-            id="signature_move"
-            name="signature_move"
-            onChange={(e) =>
-              handleOnChange(
-                e.target.id,
-                e.target.value,
-                updatedData,
-                setUpdatedData
-              )
-            }
-            value={updatedData.signature_move}
-          ></input>
-        </div>
-        <div>
-          <label className="label">Last name</label>
-          <input
-            type="text"
-            id="lastname"
-            name="lastname"
-            onChange={(e) =>
-              handleOnChange(
-                e.target.id,
-                e.target.value,
-                updatedData,
-                setUpdatedData
-              )
-            }
-            value={updatedData.lastname}
-          ></input>
-        </div>
-        <div>
-          <label className="label">Jersey Number</label>
-          <input
-            type="number"
-            id="jersey_number"
-            name="jersey_number"
-            onChange={(e) =>
-              handleOnChange(
-                e.target.id,
-                e.target.value,
-                updatedData,
-                setUpdatedData
-              )
-            }
-            value={updatedData.jersey_number}
-          ></input>
-        </div>
-        <div>
-          {updatedData.profile_picture ? (
-            <>
-              <label className="label">Profile Picture</label>
-              <input
-                type="url"
-                id="profile_picture"
-                name="profile_picture"
-                onChange={(e) =>
-                  handleOnChange(
-                    e.target.id,
-                    e.target.value,
-                    updatedData,
-                    setUpdatedData
-                  )
-                }
-                value={updatedData.profile_picture}
-              ></input>{" "}
-            </>
-          ) : (
-            ""
-          )}
-        </div>
-        <button className="submit-button">Submit</button>
-      </form>
+      <div className="background">
+        <div className="stars" />
+        <div className="stars1" />
+        <div className="stars2" />
+        <div className="shooting-stars" />
+        <form className="edit-body" onSubmit={updateTrotterPlayer}>
+          <div className="option">
+            <label className="label">Skill</label>
+            <select
+              type="text"
+              id="position"
+              name="position"
+              onChange={(e) =>
+                handleOnChange(
+                  e.target.id,
+                  e.target.value,
+                  updatedData,
+                  setUpdatedData
+                )
+              }
+              value={updatedData.skill}
+            >
+              <option>Choose a skill..</option>
+              {skills.map((skill, index) => (
+                <option key={index + skill}>{skill}</option>
+              ))}
+            </select>
+          </div>
+          <div className="option">
+            <label className="label">Height</label>
+            <input
+              type="text"
+              id="height"
+              name="height"
+              onChange={(e) =>
+                handleOnChange(
+                  e.target.id,
+                  e.target.value,
+                  updatedData,
+                  setUpdatedData
+                )
+              }
+              value={updatedData.height}
+            ></input>
+          </div>
+          <div className="option">
+            <label className="label">Nickname</label>
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              onChange={(e) =>
+                handleOnChange(
+                  e.target.id,
+                  e.target.value,
+                  updatedData,
+                  setUpdatedData
+                )
+              }
+              value={updatedData.nickname}
+            ></input>
+          </div>
+          <div className="option">
+            <label className="label">Signature Move</label>
+            <input
+              type="text"
+              id="signature_move"
+              name="signature_move"
+              onChange={(e) =>
+                handleOnChange(
+                  e.target.id,
+                  e.target.value,
+                  updatedData,
+                  setUpdatedData
+                )
+              }
+              value={updatedData.signature_move}
+            ></input>
+          </div>
+          <div className="option">
+            <label className="label">Last name</label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              onChange={(e) =>
+                handleOnChange(
+                  e.target.id,
+                  e.target.value,
+                  updatedData,
+                  setUpdatedData
+                )
+              }
+              value={updatedData.lastname}
+            ></input>
+          </div>
+          <div className="option">
+            <label className="label">Jersey Number</label>
+            <input
+              type="number"
+              id="jersey_number"
+              name="jersey_number"
+              onChange={(e) =>
+                handleOnChange(
+                  e.target.id,
+                  e.target.value,
+                  updatedData,
+                  setUpdatedData
+                )
+              }
+              value={updatedData.jersey_number}
+            ></input>
+          </div>
+          <div className="option">
+            {updatedData.profile_picture ? (
+              <>
+                <label className="label">Profile Picture</label>
+                <input
+                  type="url"
+                  id="profile_picture"
+                  name="profile_picture"
+                  onChange={(e) =>
+                    handleOnChange(
+                      e.target.id,
+                      e.target.value,
+                      updatedData,
+                      setUpdatedData
+                    )
+                  }
+                  value={updatedData.profile_picture}
+                ></input>{" "}
+              </>
+            ) : (
+              ""
+            )}
+          </div>
+          <button className="submit-button">Submit</button>
+        </form>
+      </div>
     )
   );
 }
