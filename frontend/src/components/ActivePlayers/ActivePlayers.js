@@ -25,6 +25,14 @@ function AllTrotter() {
   }
 
   return (
+
+        <div className="background">
+      <div className="container text">
+        <div className = "stars"/>
+        <div className ="stars1"/>
+        <div className = "stars2"/>
+          <div className = "shooting-stars"/>
+    
     <div className="container mt-4">
       <div className="row">
         {data.map(({ id, profile_picture, nickname, jersey_number }) => (
@@ -55,9 +63,12 @@ function AllTrotter() {
                   View Details
                 </button>
               </div>
+
+
             </div>
           </div>
-        ))}
+        
+
       </div>
     </div>
   );
