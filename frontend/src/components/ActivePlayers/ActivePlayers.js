@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllTrottersAPI } from "../API/API";
 import { useNavigate } from "react-router-dom";
 import "./ActivePlayers.css";
+import { getImagesForActivePlayers } from "../data/Images";
 
 function AllTrotter() {
   let navigate = useNavigate();
@@ -35,30 +36,30 @@ function AllTrotter() {
 
         <div className="container mt-4">
           <div className="row">
-            {data.map(({ id, profile_picture, nickname, jersey_number }) => (
+            {data.map((player) => (
               <div
-                key={id}
+                key={player.id}
                 className="col-md-4 mb-4"
-                onClick={() => goToPlayer(id)}
+                onClick={() => goToPlayer(player.id)}
               >
                 <div className="card">
                   <img
-                    src={profile_picture}
+                    src={getImagesForActivePlayers(player)}
                     className="card-img-top"
-                    alt={nickname}
+                    alt=""
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{nickname}</h5>
+                    <h5 className="card-title">{player.nickname}</h5>
                   </div>
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item">
-                      <strong>Jersey Number:</strong> {jersey_number}
+                      <strong>Jersey Number:</strong> {player.jersey_number}
                     </li>
                   </ul>
                   <div className="card-body">
                     <button
                       className="btn btn-primary"
-                      onClick={() => goToPlayer(id)}
+                      onClick={() => goToPlayer(player.id)}
                     >
                       View Details
                     </button>
