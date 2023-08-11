@@ -34,6 +34,7 @@ function SingleUserTrotter() {
   async function deleteUserTrotter() {
     try {
       await deleteUserTrotterAPI(id);
+      alert(`You deleted ${data.nickname}`);
       navigate(`/user-trotter`);
     } catch (error) {
       console.log(error);

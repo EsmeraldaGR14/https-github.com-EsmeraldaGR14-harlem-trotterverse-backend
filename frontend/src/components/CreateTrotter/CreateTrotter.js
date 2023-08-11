@@ -62,7 +62,9 @@ const CreateTrotter = () => {
       profile_picture: profilePicture,
       jersey_number: jerseyNumber,
     };
+    alert("You created a trotter!");
     navigate(`/user-trotter`);
+
     try {
       await displayUserProfileAPI(userProfileDetails);
     } catch (error) {
