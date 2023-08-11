@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./CreateTrotter.css";
 import { displayUserProfileAPI } from "../API/API";
+import { useNavigate } from "react-router-dom";
 
 const CreateTrotter = () => {
+  let navigate = useNavigate();
   const [nickname, setNickname] = useState("");
   const [lastName, setLastName] = useState("");
   const [height, setHeight] = useState("");
@@ -10,7 +12,6 @@ const CreateTrotter = () => {
   const [signatureMove, setSignatureMove] = useState("");
   const [jerseyNumber, setJerseyNumber] = useState(0);
   const [profilePicture, setProfilePicture] = useState("");
-  
 
   const skills = [
     "Dunking",
@@ -34,7 +35,6 @@ const CreateTrotter = () => {
     setHeight(event.target.value);
   };
   const handleJerseyNumberChange = (event) => {
-     
     setJerseyNumber(event.target.value);
   };
 
@@ -45,8 +45,7 @@ const CreateTrotter = () => {
   const handleSignatureMoveChange = (event) => {
     setSignatureMove(event.target.value);
   };
- 
-  
+
   const handleProfilePictureChange = (event) => {
     const url = event.target.value;
     setProfilePicture(url);
@@ -61,8 +60,9 @@ const CreateTrotter = () => {
       skill: selectedSkill,
       signature_move: signatureMove,
       profile_picture: profilePicture,
-      jersey_number: jerseyNumber
+      jersey_number: jerseyNumber,
     };
+    navigate(`/user-trotter`);
     try {
       await displayUserProfileAPI(userProfileDetails);
     } catch (error) {
@@ -139,6 +139,6 @@ const CreateTrotter = () => {
       </div>
     </div>
   );
-              };
+};
 
 export default CreateTrotter;

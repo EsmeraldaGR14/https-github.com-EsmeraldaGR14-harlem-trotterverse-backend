@@ -9,6 +9,7 @@ import CreateTrotter from "./components/CreateTrotter/CreateTrotter";
 import AllUserTrotters from "./components/AllUserTrotters/AllUserTrotters";
 import SingleUserTrotter from "./components/SingleUserTrotter/SingleUSerTrotter";
 import PlayerBios from "./components/PlayerBios/PlayerBios";
+import DreamTeam from "./components/DreamTeam/DreamTeam";
 
 function App() {
   return (
@@ -23,8 +24,13 @@ function App() {
           <Route path="/user-trotter" element={<AllUserTrotters />}></Route>
           <Route path="/user-trotter/new" element={<CreateTrotter />} />
           <Route path="/user-trotter/:id" element={<SingleUserTrotter />} />
+          <Route
+            path="/user-trotter/:id/dream-team"
+            element={<DreamTeam />}
+          ></Route>
           <Route path="/user-trotter/:id/edit" element={<EditTrotter />} />
-          <Route path="*" element={""} />
+
+          <Route path="*" element={"PAGE NOT FOUND"} />
         </Routes>
       </Router>
     </div>
