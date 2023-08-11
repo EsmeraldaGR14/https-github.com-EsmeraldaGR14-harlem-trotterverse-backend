@@ -8,6 +8,19 @@ function HomePage() {
     "Marques_Haynes.png",
     "teamphoto_color.png",
     "Umbrella_bwdribble.png",
+    "currentdaygameday_color.png",
+    "defense_bw.png",
+    "empower_bw.png",
+    "gameday_color.png",
+    "Geese_Ausbie.png",
+    "offense_bw.png",
+    "pairoftrotters.png",
+    "paris_color.png",
+    "schooltrip_bw.png",
+    "soloportrait2.png",
+    "teamphoto_color.png",
+    "trashtalk_bw.png",
+    "trotterincrowd_bw.png",
   ];
   const quote =
     "The special thing is no matter where we go, we're always the home team.";
