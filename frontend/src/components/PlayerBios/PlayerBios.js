@@ -42,6 +42,7 @@ function PlayerBios() {
                 backgroundColor: "#000",
                 color: "#fff",
                 padding: "1.5rem 1rem",
+                paddingTop: "94px",
                 marginTop: "-5rem",
                 marginBottom: "1rem",
               }}
@@ -120,13 +121,9 @@ function PlayerBios() {
                     </span>
                     Career Highlights and Awards
                   </h2>
-                  {`${data.career_highlights}`}
                 </div>
                 <div className="col-lg-12">
-                  <p>
-                    Guinness World Record, Furthest Behind The Back Alley-Oop
-                    (51’ 2.45”)
-                  </p>
+                  <p>{`${data.career_highlights}`}</p>
                 </div>
               </div>
               <div className="row mb-5">
@@ -141,49 +138,37 @@ function PlayerBios() {
                   </h2>
                 </div>
                 <div className="col-lg-12">
-                  <p>
-                    Freed-Hardeman University: 2011 – 2012
-                    <br />
-                    Harlem Globetrotters: 2018 – Present
-                  </p>
+                  <p>{`${data.career_history}`}</p>
+                </div>
+                <div className="col-lg-12">
+                  <h2>
+                    <span
+                      style={{ minWidth: "2.5rem", display: "inline-block" }}
+                    >
+                      <span className="fas fa-hourglass"></span>
+                    </span>
+                    Favorite Quote
+                  </h2>
+                  <div className="col-lg-12">
+                    <p>{`${data.favorite_quote}`}</p>
+                  </div>
+                </div>
+                <div className="col-lg-12">
+                  <h2>
+                    <span
+                      style={{ minWidth: "2.5rem", display: "inline-block" }}
+                    >
+                      <span className="fas fa-hourglass"></span>
+                    </span>
+                    Hobbies
+                  </h2>
+                  <div className="col-lg-12">
+                    <p>{`${data.hobbies}`}</p>
+                  </div>
                 </div>
               </div>
             </div>
-            {/* <h5 className="card-title">{`${data.nickname} ${data.lastname}`}</h5>
-        <p className="card-text">{data.bio}</p> */}
-            {/* <ul className="list-group list-group-flush">
-          <li className="list-group-item">
-            <strong>Position:</strong> {data.position}
-          </li>
-          <li className="list-group-item">
-            <strong>Height:</strong> {data.height}
-          </li>
-          <li className="list-group-item">
-            <strong>Last Name:</strong> {data.lastname}
-          </li>
-          <li className="list-group-item">
-            <strong>Hometown:</strong> {data.hometown}
-          </li>
-          <li className="list-group-item">
-            <strong>Alma Mater:</strong> {data.almamater}
-          </li>
-          <li className="list-group-item">
-            <strong>Jersey Number:</strong> {data.jersey_number}
-          </li>
-          <li className="list-group-item">
-            <strong>Career Highlights:</strong> {data.career_highlights}
-          </li>
-          <li className="list-group-item">
-            <strong>Career History:</strong> {data.career_history}
-          </li>
-          <li className="list-group-item">
-            <strong>Favorite Quote:</strong> {data.favorite_quote}
-          </li>
-          <li className="list-group-item">
-            <strong>Hobbies:</strong> {data.hobbies}
-          </li>
-        </ul> */}
-            <button onClick={goBack}>BACK</button>
+            <button className="button-back" onClick={goBack}>BACK</button>
           </div>
         </div>
       </div>{" "}
