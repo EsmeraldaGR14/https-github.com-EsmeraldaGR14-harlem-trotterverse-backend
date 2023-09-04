@@ -1,7 +1,0 @@
-.disabled {
-  background-color: lightgray;
-  pointer-events: none;
-  /* You can also add additional styling to visually indicate that the element is disabled */
-  opacity: 0.5;
-  cursor: not-allowed;
-}
